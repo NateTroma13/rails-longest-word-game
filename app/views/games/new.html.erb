@@ -1,0 +1,13 @@
+<h1>Longest Word Game</h1>
+
+<ul class="letters">
+  <% @letters.each do |letter| %>
+    <li><%= letter %></li>
+  <% end %>
+</ul>
+
+<%= form_with url: score_path, method: :post, local: true do |form| %>
+  <%= form.hidden_field :letters, value: @letters.join(' ') %>
+  <%= form.text_field :word, placeholder: "Enter a word" %>
+  <%= form.submit "Submit" %>
+<% end %>
